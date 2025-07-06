@@ -1,1 +1,0 @@
-cmd /k "py capture_client.py"
