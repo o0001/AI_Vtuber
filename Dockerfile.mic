@@ -1,6 +1,6 @@
 FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
 
-ENV TZ=Asia/Shanghai
+ENV TZ=Asia/Seoul
 RUN apt-get update && \
     apt-get install -y python3 python3-pip python3-venv git && \
     rm -rf /var/lib/apt/lists/*
