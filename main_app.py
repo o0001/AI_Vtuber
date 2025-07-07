@@ -16,13 +16,13 @@ from utils.file_manager import manage_temp_audio_file, get_temp_file_path
 from llm_service import generate_response_text, load_llm_model
 from audio_service import text_to_speech_sync
 
-# --- FastAPI 앱 초기화 ---
+
 app = FastAPI()
 
-# --- 전역 변수, 모델, 동시성 제어 ---
+
 MODELS = {}
 CHAT_HISTORY = []
-api_lock = asyncio.Lock()  # API 엔드포인트에 대한 동시 접근을 제어하기 위한 Lock
+api_lock = asyncio.Lock()  
 MEMORY_DEPTH = config_manager.getint('llm_params', 'memory_depth', fallback=5)
 STT_MODEL_TYPE = config_manager.get('models', 'stt_model_type')
 SER_MODEL_NAME = config_manager.get('models', 'ser_model')
@@ -107,7 +107,7 @@ async def process_audio_endpoint(audio_file: UploadFile = File(...)):
             wav_bytes = await convert_audio_to_wav(audio_file)
 
             with manage_temp_audio_file(wav_bytes, suffix=".wav") as temp_wav_path:
-                # 모든 동기 함수들을 run_in_executor로 감싸 비동기적으로 실행
+                
                 loop = asyncio.get_running_loop()
                 
                 user_text = await loop.run_in_executor(
