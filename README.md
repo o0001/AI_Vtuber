@@ -1,5 +1,5 @@
 # AI_Vtuber
-ai v_tuber project
+ai_vtuber project
 
 
 
