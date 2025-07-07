@@ -1,7 +1,0 @@
-torch
-sounddevice
-scipy
-librosa
-transformers
-openai-whisper
-torchaudio 
